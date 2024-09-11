@@ -1,100 +1,3 @@
-// import React, { createContext, useContext, useEffect, useState } from 'react';
-// import { useTheme } from './ThemeContext';
-// import axios from "axios";
-// import { Link } from 'react-router-dom';
-// import "./icomoon/style.css"
-
-// import { useCart } from './CartContext';
-
-
-// const Home = () => {
-//   const [loading, setLoading] = useState(true)
-//   const { theme } = useTheme();
-//   const [products, setProducts] = useState([]);
-//   const { addToCart } = useCart();
-//   const [filter, setFilter] = useState([]);
-//   const [search, setSearch] = useState('');
-
-
-
-//   useEffect(() => {
-//     axios.get("https://api.escuelajs.co/api/v1/products")
-//       .then(response => {
-//         setProducts(response.data);
-//         setFilter(response.data);
-//         setLoading(false);
-//       })
-//       .catch(error => {
-//         console.log("Error fetching data: ", error);
-//         setLoading(false);
-//       })
-//   }, [])
-
-
-//   useEffect(() => {
-//     setFilter(
-//       products.filter(product =>
-//         product.title.toLowerCase().includes(search.toLowerCase())
-//       )
-//     );
-//   }, [search, products])
-
-
-//   if (loading) {
-//     return <div className='loading' id={theme}>Loading...</div>
-//   }
-
-//   return (
-//     <>
-//       <div id={theme} className='div_search'>
-//         <input className='input_search'
-//           style={{ backgroundColor: theme === 'light' ? '#f0f0f0' : '#424242' }}
-//           placeholder='Serach'
-//           value={search}
-//           onChange={(e) => setSearch(e.target.value)}
-//         />
-//         <input
-//           className='range'
-//           type='range'></input>
-//       </div>
-
-//       <div className="wrapperAllPage" id={theme}>
-//         {filter.length === 0 ? (
-//           <h2>No products found</h2>
-//         ) : (
-//           filter.map(product => (
-//             <div className="separateDiv">
-//               <Link to={`/products/${product.id}`}>
-//                 <img src={product.images} />
-//               </Link>
-//               <div className='content'>
-//                 <h3 className='p_title'>{product.title}</h3>
-//                 <p>Category: {product.category.name}</p>
-//                 <p className='p_description'>{product.description}</p>
-//                 <button onClick={() => addToCart(product)}><span className="icon-cart"></span> Add to cart</button>
-//                 <p className='price'>price <br/> {product.price} $</p>
-//               </div>
-//             </div>
-//           ))
-
-//         )}
-//       </div >
-//     </>
-//   );
-// };
-
-// export default Home;
-
-
-
-
-
-
-
-
-
-
-
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
@@ -108,7 +11,7 @@ const Home = () => {
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState([]);
   const [search, setSearch] = useState('');
-  const [priceRange, setPriceRange] = useState(1000000); // Default maximum range
+  const [priceRange, setPriceRange] = useState(1000000); 
 
   const minRange = 1;
   const maxRange = 100000000;
@@ -164,9 +67,6 @@ const Home = () => {
             value={priceRange}
             onChange={handleRangeChange}
           />
-          {/* <div className='range-labels'>
-            <span>Max Price: {priceRange} $</span>
-          </div> */}
 
           <p className='range_p'>Max Price: {priceRange} $</p>
         </div>

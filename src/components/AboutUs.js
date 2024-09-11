@@ -8,8 +8,6 @@ const AboutUs = () => {
   return (
     <div className='div_aboutUs' id={theme}>
 
-      {/* <img src='https://i.ytimg.com/vi/k7Z0I3_cbuU/hqdefault.jpg'/> */}
-
       <div className='div_images'>
         <div className='img1'><img src='https://i.imgur.com/cHddUCu.jpeg,https://i.imgur.com/CFOjAgK.jpeg,https://i.imgur.com/wbIMMme.jpeg' /></div>
         <div className='img2'><img src='https://emirs-shop.vercel.app/_next/image?url=https%3A%2F%2Fi.imgur.com%2FQphac99.jpeg&w=1080&q=75' /></div>
